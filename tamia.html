@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>💖 Una pregunta especial 💖</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial;
+            background: #ffe6e6;
+        }
+        h1 {
+            color: #d63384;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 18px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        #si {
+            background-color: #28a745;
+            color: white;
+        }
+        #no {
+            background-color: #dc3545;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>💖 Tengo una pregunta para ti 💖</h1>
+    <p>Desde que te conocí, todo es más bonito...</p>
+    <h2>¿Quieres ser mi persona especial? 💕</h2>
+
+    <button id="si" onclick="responderSi()">Sí 💖</button>
+    <button id="no" onclick="responderNo()">No 😢</button>
+
+    <h3 id="respuesta"></h3>
+
+    <script>
+        function responderSi() {
+            document.getElementById("respuesta").innerHTML = "💖 Sabía que dirías que sí 💖";
+        }
+
+        function responderNo() {
+            document.getElementById("respuesta").innerHTML = "😢 Inténtalo otra vez...";
+        }
+    </script>
+
+</body>
+</html>

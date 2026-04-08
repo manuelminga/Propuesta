@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>💖 Holiii mi Tamia preciosa 💖</title>
     <style>
         body {
@@ -179,6 +180,60 @@
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
+        }
+
+        /* Ajustes solo para móviles, sin afectar la vista de escritorio */
+        @media (max-width: 480px) {
+            body {
+                margin: 0;
+                padding: 14px 12px 24px;
+            }
+            h1 {
+                font-size: 1.35rem;
+                line-height: 1.3;
+                margin-top: 10px;
+            }
+            h2 {
+                font-size: 1.1rem;
+                line-height: 1.35;
+            }
+            h3 {
+                font-size: 1rem;
+                line-height: 1.35;
+            }
+            p {
+                line-height: 1.45;
+                margin-left: auto;
+                margin-right: auto;
+                max-width: 34ch;
+            }
+            .foto-marco {
+                width: 168px;
+                height: 168px;
+                margin: 16px auto;
+            }
+            button {
+                font-size: 16px;
+                width: min(92vw, 320px);
+                padding: 12px 14px;
+                margin: 8px auto;
+                display: block;
+            }
+            iframe {
+                height: 190px;
+            }
+            .dialogo-caja {
+                width: min(92vw, 320px);
+                padding: 14px;
+            }
+            .notificacion-centro.con-imagen {
+                width: min(92vw, 340px);
+                padding: 16px;
+            }
+            .notificacion-imagen {
+                width: 140px;
+                height: 140px;
+            }
         }
     </style>
 </head>

@@ -28,44 +28,296 @@
             background-color: #dc3545;
             color: white;
         }
+        .foto-marco {
+            width: 190px;
+            height: 190px;
+            margin: 22px auto;
+            padding: 4px;
+            border-radius: 22px;
+            background: linear-gradient(135deg, #ff5f9e, #ff9f68, #ffd166);
+            background-size: 220% 220%;
+            box-shadow: 0 12px 28px rgba(214, 51, 132, 0.28);
+            animation: brilloBorde 5s ease infinite;
+        }
+        .foto-marco img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 25%;
+            border-radius: 18px;
+            display: block;
+            transition: transform 0.35s ease, filter 0.35s ease;
+        }
+        .foto-marco:hover img {
+            transform: scale(1.04);
+            filter: saturate(1.12);
+        }
+        .dialogo-fondo {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.45);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        .dialogo-fondo.activo {
+            display: flex;
+        }
+        .dialogo-caja {
+            width: min(92vw, 340px);
+            background: #fff7fb;
+            border: 2px solid #ff9f68;
+            border-radius: 16px;
+            padding: 18px;
+            box-shadow: 0 14px 35px rgba(0, 0, 0, 0.2);
+        }
+        .dialogo-caja p {
+            margin: 0 0 14px;
+            color: #b42362;
+            font-weight: bold;
+        }
+        .dialogo-acciones {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+        .btn-intentar {
+            background: #ff9f68;
+            color: white;
+        }
+        .btn-no {
+            background: #dc3545;
+            color: white;
+        }
+        .notificacion-centro {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.95);
+            background: #ffffff;
+            color: #b42362;
+            padding: 12px 18px;
+            border-radius: 12px;
+            font-weight: bold;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.25s ease, transform 0.25s ease;
+            z-index: 1200;
+            pointer-events: none;
+        }
+        .notificacion-centro.con-imagen {
+            width: min(92vw, 430px);
+            text-align: center;
+            padding: 24px;
+            border: 2px solid #ff9f68;
+            border-radius: 18px;
+        }
+        .notificacion-centro.con-imagen p {
+            margin: 0 0 14px;
+            font-size: 1.08rem;
+        }
+        .notificacion-imagen {
+            width: 170px;
+            height: 170px;
+            object-fit: cover;
+            border-radius: 14px;
+            border: 2px solid #ffd166;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+        }
+        .notificacion-centro.activa {
+            opacity: 1;
+            visibility: visible;
+            transform: translate(-50%, -50%) scale(1);
+        }
+        .lluvia-corazones {
+            position: fixed;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 1150;
+            display: none;
+        }
+        .lluvia-corazones.activa {
+            display: block;
+        }
+        .corazon {
+            position: absolute;
+            bottom: -40px;
+            opacity: 0;
+            animation-name: rebotarCorazon;
+            animation-timing-function: ease-in-out;
+            animation-fill-mode: forwards;
+        }
+        @keyframes rebotarCorazon {
+            0% {
+                transform: translateY(0) scale(0.7);
+                opacity: 0;
+            }
+            12% {
+                opacity: 1;
+            }
+            35% {
+                transform: translateY(-28vh) scale(1);
+            }
+            45% {
+                transform: translateY(-23vh) scale(0.96);
+            }
+            65% {
+                transform: translateY(-58vh) scale(1.08);
+            }
+            75% {
+                transform: translateY(-52vh) scale(1);
+            }
+            100% {
+                transform: translateY(-112vh) scale(0.92);
+                opacity: 0;
+            }
+        }
+        @keyframes brilloBorde {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
     </style>
 </head>
 <body>
 
     <h1>💖 Ayy Tamia, nose porque, pero me tienes aquí rogandote 💖</h1>
-    <p>Eres una personita dificil de sacar de mi mente...</p>
+    <p>Eres una personita difícil de sacar de mi mente...</p>
     
     <!-- Imagen -->
-    <img src="Tamia.jpeg" alt="Imagen especial">
+    <div class="foto-marco">
+        <img src="Tamia.jpeg" alt="Imagen especial">
+    </div>
     
     <!-- Música de YouTube -->
     <div style="margin: 30px 0;">
-        <h3>🎵 Escucha esta canción para ti 🎵</h3>
-        <iframe width="100%" height="315" 
+        <h3>🎵 La letra de está canción, te queda perfect... 🎵</h3>
+        <iframe width="100%" height="205" 
             src="https://www.youtube.com/embed/H4IbBIlxwNs" 
             title="YouTube video player" 
             frameborder="0" 
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
             referrerpolicy="strict-origin-when-cross-origin" 
             allowfullscreen
-            style="max-width: 500px; margin: 0 auto; display: block;">
+            style="max-width: 360px; margin: 0 auto; display: block;">
         </iframe>
     </div>
     
     <h2>¿Solo quiero preguntarte si aún sigues enojada? 💕</h2>
 
-    <button id="si" onclick="responderSi()">Sí 💖</button>
-    <button id="no" onclick="responderNo()">No 😢</button>
+    <button id="si" onclick="responderSi()">Sí 😢</button>
+    <button id="no" onclick="responderNo()">No 💖</button>
 
     <h3 id="respuesta"></h3>
+    <div id="notificacionCentro" class="notificacion-centro" aria-live="polite"></div>
+    <div id="lluviaCorazones" class="lluvia-corazones" aria-hidden="true"></div>
+
+    <div id="dialogoSi" class="dialogo-fondo" aria-hidden="true">
+        <div class="dialogo-caja" role="dialog" aria-modal="true" aria-labelledby="dialogoTitulo">
+            <p id="dialogoTitulo"> Perdonameee porfiiiii...</p>
+            <!-- Imagen -->
+    <div class="foto-marco">
+        <img src="images.jpg" alt="Imagen especial">
+    </div>
+            <div class="dialogo-acciones">
+                <button class="btn-intentar" onclick="elegirSeguirIntentando()">Seguir intentando</button>
+                
+            </div>
+        </div>
+    </div>
 
     <script>
         function responderSi() {
-            document.getElementById("respuesta").innerHTML = "💖 Segura... Intentalo de nuevo mi Tami 💖";
+            document.getElementById("dialogoSi").classList.add("activo");
+            document.getElementById("dialogoSi").setAttribute("aria-hidden", "false");
         }
 
         function responderNo() {
-            document.getElementById("respuesta").innerHTML = "Sabía que no, te quiero mucho mi Tamia preciosa 💖";
+            mostrarNotificacionNo();
+        }
+
+        function elegirSeguirIntentando() {
+            mostrarNotificacion("Elije bien mi amor");
+            cerrarDialogoSi();
+        }
+
+        function mostrarNotificacion(mensaje) {
+            const notificacion = document.getElementById("notificacionCentro");
+            notificacion.classList.remove("con-imagen");
+            notificacion.textContent = mensaje;
+            notificacion.classList.add("activa");
+
+            setTimeout(function () {
+                notificacion.classList.remove("activa");
+            }, 3000);
+        }
+
+        let intervaloCorazones = null;
+
+        function mostrarNotificacionNo() {
+            const notificacion = document.getElementById("notificacionCentro");
+            notificacion.classList.add("con-imagen");
+            notificacion.innerHTML = "<p>Sabía que no, te quiero mucho mi Tamia preciosa 💖</p><img src='EllayYo.jpeg' alt='EllayYo' class='notificacion-imagen'>";
+            notificacion.classList.add("activa");
+            iniciarCorazones();
+
+            setTimeout(function () {
+                notificacion.classList.remove("activa", "con-imagen");
+                notificacion.textContent = "";
+                detenerCorazones();
+            }, 7000);
+        }
+
+        function iniciarCorazones() {
+            const capa = document.getElementById("lluviaCorazones");
+            capa.classList.add("activa");
+            capa.innerHTML = "";
+
+            for (let i = 0; i < 14; i++) {
+                setTimeout(function () {
+                    crearCorazon(capa);
+                }, i * 90);
+            }
+
+            intervaloCorazones = setInterval(function () {
+                crearCorazon(capa);
+            }, 180);
+        }
+
+        function crearCorazon(capa) {
+            const corazon = document.createElement("span");
+            const tipos = ["💖", "💕", "💗", "💘"];
+            corazon.className = "corazon";
+            corazon.textContent = tipos[Math.floor(Math.random() * tipos.length)];
+            corazon.style.left = Math.random() * 100 + "vw";
+            corazon.style.fontSize = 16 + Math.random() * 18 + "px";
+            corazon.style.animationDuration = 2.6 + Math.random() * 1.7 + "s";
+            capa.appendChild(corazon);
+
+            setTimeout(function () {
+                corazon.remove();
+            }, 4500);
+        }
+
+        function detenerCorazones() {
+            const capa = document.getElementById("lluviaCorazones");
+            if (intervaloCorazones) {
+                clearInterval(intervaloCorazones);
+                intervaloCorazones = null;
+            }
+
+            setTimeout(function () {
+                capa.classList.remove("activa");
+                capa.innerHTML = "";
+            }, 450);
+        }
+
+        function cerrarDialogoSi() {
+            document.getElementById("dialogoSi").classList.remove("activo");
+            document.getElementById("dialogoSi").setAttribute("aria-hidden", "true");
         }
     </script>
 
